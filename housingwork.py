@@ -17,8 +17,8 @@ def createzipdict(filename):
 		testreader = csv.reader(csvfile)
 		skiptitle = False
 		for row in testreader:
-            if len(row[11][0:5]) == 5:
-			    zip_dict[(row[0], row[1])] = row[11]
+			if len(row[11][0:5]) == 5:
+				zip_dict[(row[0], row[1])] = row[11]
 	return zip_dict
 
 
@@ -45,13 +45,13 @@ def createvaluedict(filename):
 	return valdict
 
 
-def valuechange_by_zip(zip_dict, value_dict):
+def valuechange_by_zip(zip_dict, valdict):
     """
     Arguments
     ---------
     zip_dict : dictionary with
                (Major, Minor) : zip code
-    value_dict : dictionary with
+    valdict : dictionary with
                  (Major, Minor) : percent change in value between 2012 and 2017
 
     Output
@@ -60,12 +60,12 @@ def valuechange_by_zip(zip_dict, value_dict):
                      zip : average percent change in value between 2012 and 2017
                            within the region
     """
-	from collections import defaultdict
-	zip_change = defaultdict(list)
-	avg_zip_change = {}
-	for mm in zip_dict:
-		if mm in valdict:
-			zip_change[zip_dict[mm]].append(valdict[mm])
-	for zipcode in zip_change:
-		avg_zip_change[zipcode] = np.mean(zip_change[zipcode])
-	return avg_zip_change
+    from collections import defaultdict
+    zip_change = defaultdict(list)
+    avg_zip_change = {}
+    for mm in zip_dict:
+        if mm in valdict:
+            zip_change[zip_dict[mm]].append(valdict[mm])
+    for zipcode in zip_change:
+        avg_zip_change[zipcode] = np.mean(zip_change[zipcode])
+    return avg_zip_change
