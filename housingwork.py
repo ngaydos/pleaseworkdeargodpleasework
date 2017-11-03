@@ -6,9 +6,9 @@ def top50zips(zipdata, valuedata):
 	value_dict = createvaluedict(valuedata)
 	avg_zip_change = valuechange_by_zip(zip_dict, value_dict)
 	#sort the zip codes by the average change value
-	list(sorted(avg_zip_change.items(), key = lambda x : x[1]))
-	L = len(avg_zip_change)
-	return avg_zip_change[(L+1)/2 :]
+	A = list(sorted(avg_zip_change.items(), key = lambda x : x[1]))
+	L = len(A)
+	return A[(L+1)/2 :]
 
 
 def createzipdict(filename):
@@ -60,7 +60,6 @@ def valuechange_by_zip(zip_dict, valdict):
                      zip : average percent change in value between 2012 and 2017
                            within the region
     """
-
     from collections import defaultdict
     zip_change = defaultdict(list)
     avg_zip_change = {}
