@@ -18,7 +18,7 @@ def createzipdict(filename):
 		skiptitle = False
 		for row in testreader:
 			if len(row[11][0:5]) == 5:
-				zip_dict[(row[0], row[1])] = row[11][0:6]
+				zip_dict[(row[0], row[1])] = row[11][0:5]
 	return zip_dict
 
 
