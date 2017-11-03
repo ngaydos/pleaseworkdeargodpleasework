@@ -18,7 +18,7 @@ def createzipdict(filename):
 		skiptitle = False
 		for row in testreader:
 			if len(row[11][0:5]) == 5:
-				zip_dict[(row[0], row[1])] = row[11]
+				zip_dict[(row[0], row[1])] = row[11][0:5]
 	return zip_dict
 
 
@@ -60,6 +60,7 @@ def valuechange_by_zip(zip_dict, valdict):
                      zip : average percent change in value between 2012 and 2017
                            within the region
     """
+
     from collections import defaultdict
     zip_change = defaultdict(list)
     avg_zip_change = {}
