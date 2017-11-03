@@ -17,7 +17,8 @@ def createzipdict(filename):
 		testreader = csv.reader(csvfile)
 		skiptitle = False
 		for row in testreader:
-			zip_dict[(row[0], row[1])] = row[11]
+            if len(row[11][0:5]) == 5:
+			    zip_dict[(row[0], row[1])] = row[11]
 	return zip_dict
 
 
