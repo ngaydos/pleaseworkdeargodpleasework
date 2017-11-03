@@ -17,8 +17,8 @@ def createzipdict(filename):
 		testreader = csv.reader(csvfile)
 		skiptitle = False
 		for row in testreader:
-            if len(row[11][0:5]) == 5:
-			    zip_dict[(row[0], row[1])] = row[11]
+			if len(row[11][0:5]) == 5:
+				zip_dict[(row[0], row[1])] = row[11][0:6]
 	return zip_dict
 
 
@@ -45,7 +45,7 @@ def createvaluedict(filename):
 	return valdict
 
 
-def valuechange_by_zip(zip_dict, value_dict):
+def valuechange_by_zip(zip_dict, valdict):
     """
     Arguments
     ---------
@@ -69,3 +69,4 @@ def valuechange_by_zip(zip_dict, value_dict):
 	for zipcode in zip_change:
 		avg_zip_change[zipcode] = np.mean(zip_change[zipcode])
 	return avg_zip_change
+
