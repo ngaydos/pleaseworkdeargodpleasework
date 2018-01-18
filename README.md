@@ -1,3 +1,1 @@
-###This is a readme
-
-MAGIC GIT PROJECT WORK
+Week 0 Case Study for Seattle Real Estate Prices
